@@ -29,6 +29,7 @@ form.addEventListener("submit", (event) => {
 // let say k mery ps 1 array hai or osk andr mery ps bht sary objects hain, mtlb k mery ps multiple data hai lkin browser m tu tu key value ki form mai data tu hai lkin itna zda multiple data mjy broswer m ni dekhyga islye zrori hai k m isko
 // json m convert kro and then fer m osko access kro...
 
+// Why we convert data into json before getting items from local-storage:
 // Array k andr iss trhan k objects hai: like data iss form mai hai:
 
 let user = [
