@@ -17,14 +17,18 @@
             background-position: cover;
             background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         form {
             color: white;
             width: 400px;
-            /* margin: auto; */
             padding: 10px;
             box-shadow: 0px 0px 10px 2px #ccc;
         }
@@ -53,17 +57,17 @@
             cursor: pointer;
         }
 
-        .main {
-            width: 1320px;
-            display: flex;
-            flex-wrap: wrap;
-            margin: auto;
-        }
+       #main {
+        display: flex;
+        flex-wrap: wrap;
+        width: 1320px;
+       }
 
-        .items {
-            flex-basis: 23%;
-            margin: 1%;
-        }
+       .items {
+        flex-basis: 23%;
+        margin: 1%;
+        
+       }
     </style>
 </head>
 <body>
@@ -79,7 +83,7 @@
         <button type="submit">Submit</button>
     </form>
 
-    <div class="main">
+    <div id="main">
         <div class="items">
             <h5>Name</h5>
             <div>Abc</div>
