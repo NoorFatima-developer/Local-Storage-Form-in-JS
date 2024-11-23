@@ -2,7 +2,6 @@
 
 // Step 01--- Get Form:
 let form = document.querySelector("form");
-
 // Step 02--- Submit Form:
 form.addEventListener("submit", (event) => {
 
@@ -18,7 +17,38 @@ form.addEventListener("submit", (event) => {
   console.log(event.target.email.value);
   console.log(event.target.phone);
   console.log(event.target.phone.value);
+  let name = event.target.uname.value;
+
+  // Step 04--- Save Data in Local Storage:
+
+// Null handle operator:
+// aghr tu data mila tu dekhana ni tu ?? [] empty array dekha dena..
+// ab pehli dfa m wo [] e deyga ku k abi koi data ni beja lkin next time jb jyega tu wo data e dega jo beja hoa hoga...
+
+var userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
+console.log(userData);
+
+// Step 05--- Push Data to Array:
+
+userData.push({
+  'name': name,
+  'email': event.target.email.value,
+  'phone': event.target.phone.value
 });
+
+console.log(userData);
+
+// Step 06--- Convert Array to JSON and SetItem to send data:
+
+localStorage.setItem('userDetails', JSON.stringify(userData));
+event.preventDefault();
+
+
+
+});
+
+
+
 
 // ====LOCAL STORAGE KI KAHANI =================
 
@@ -29,28 +59,27 @@ form.addEventListener("submit", (event) => {
 // let say k mery ps 1 array hai or osk andr mery ps bht sary objects hain, mtlb k mery ps multiple data hai lkin browser m tu tu key value ki form mai data tu hai lkin itna zda multiple data mjy broswer m ni dekhyga islye zrori hai k m isko
 // json m convert kro and then fer m osko access kro...
 
-// Why we convert data into json before getting items from local-storage:
+//====Why and how we convert data into json before getting items from local-storage:====
 // Array k andr iss trhan k objects hai: like data iss form mai hai:
 
-let user = [
-    {
-        'name': 'noor',
-        'email': 'noor@gmail.com',
-        'phone': '9876543210'
-    }, 
-    {
-        'name': 'ali',
-        'email': 'ali@gmail.com',
-        'phone': '9876543211'
-    }
-]
+// let user = [
+//     {
+//         'name': 'noor',
+//         'email': 'noor@gmail.com',
+//         'phone': '9876543210'
+//     }, 
+//     {
+//         'name': 'ali',
+//         'email': 'ali@gmail.com',
+//         'phone': '9876543211'
+//     }
+// ]
 
-// stringify 1 method hai jo k basically array m jo data hai osko json m convert kryga..
-localStorage.setItem("na", JSON.stringify(user));
-console.log(localStorage.getItem("na"));
-// ab gya ye array m tha lkin json m convert o k lkin ab mjy chye b ye array m tu i will use parseInt():
-console.log(JSON.parse(localStorage.getItem("na")));
-
+// // stringify 1 method hai jo k basically array m jo data hai osko json m convert kryga..
+// localStorage.setItem("na", JSON.stringify(user));
+// console.log(localStorage.getItem("na"));
+// // ab gya ye array m tha lkin json m convert o k lkin ab mjy chye b ye array m tu i will use parseInt():
+// console.log(JSON.parse(localStorage.getItem("na")));
 // Array sy bdl k -> JSOn mai gya tha and -> JSON sy bdl k Array m wps agya hai...
 
 
