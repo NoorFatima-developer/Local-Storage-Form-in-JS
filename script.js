@@ -45,14 +45,27 @@ let user = [
     }
 ]
 
-// Localstorage setItem syntax:
-localStorage.setItem("na", user)        //na 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
+// stringify 1 method hai jo k basically array m jo data hai osko json m convert kryga..
+localStorage.setItem("na", JSON.stringify(user));
 console.log(localStorage.getItem("na"));
+// ab gya ye array m tha lkin json m convert o k lkin ab mjy chye b ye array m tu i will use parseInt():
+console.log(JSON.parseInt(localStorage.getItem("na")));
+
+
+
+
+
+
+// ::::::::::::::Local storage ki kahani::::::::::::::::::::::
+
+// // Localstorage setItem syntax:
+// localStorage.setItem("na", user)        //na 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
+// console.log(localStorage.getItem("na"));
 
 // aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
 
-localStorage.setItem("n", "hira")        //n 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
-console.log(localStorage.getItem("n"));
+// localStorage.setItem("n", "hira")        //n 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
+// console.log(localStorage.getItem("n"));
 
 // aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
 // ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json 
