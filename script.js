@@ -49,11 +49,9 @@ let user = [
 localStorage.setItem("na", JSON.stringify(user));
 console.log(localStorage.getItem("na"));
 // ab gya ye array m tha lkin json m convert o k lkin ab mjy chye b ye array m tu i will use parseInt():
-console.log(JSON.parseInt(localStorage.getItem("na")));
+console.log(JSON.parse(localStorage.getItem("na")));
 
-
-
-
+// Array sy bdl k -> JSOn mai gya tha and -> JSON sy bdl k Array m wps agya hai...
 
 
 // ::::::::::::::Local storage ki kahani::::::::::::::::::::::
