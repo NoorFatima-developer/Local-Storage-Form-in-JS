@@ -20,7 +20,7 @@ form.addEventListener("submit", (event) => {
   console.log(event.target.phone.value);
 });
 
-
+// ====LOCAL STORAGE KI KAHANI =================
 
 // Local Storage ko ab access krna ye hai main kam:
 // ismai 2 chezain ati hain 1 tu data ko bejna or dosra data ko uthana...
@@ -49,6 +49,12 @@ let user = [
 localStorage.setItem("na", user)        //na 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
 console.log(localStorage.getItem("na"));
 
+// aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
+
+localStorage.setItem("n", "hira")        //n 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
+console.log(localStorage.getItem("n"));
+
+// aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
 // ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json 
 // mai convert krty hain ta k data readable form mai ajye or hum multiple data ko b easily access krsky...
 // Step 04--- Store Data in Local Storage:
