@@ -57,4 +57,8 @@ console.log(localStorage.getItem("n"));
 // aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
 // ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json 
 // mai convert krty hain ta k data readable form mai ajye or hum multiple data ko b easily access krsky...
-// Step 04--- Store Data in Local Storage:
+
+
+// SUMMARY:
+// Ye smjo k hmy jb b object time ka data bejna hai tu hmy json m convert krna e pryga..
+// or json tu esa hi k jo array ki form mai data ko json m convert krta hai and bdmai hum wps osko array m convert krk access krskty hain...
