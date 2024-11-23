@@ -48,4 +48,6 @@ let user = [
 localStorage.setItem("na", user)        //na 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
 console.log(localStorage.getItem("na"));
 
+// ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json 
+// mai convert krty hain ta k data readable form mai ajye or hum multiple data ko b easily access krsky...
 // Step 04--- Store Data in Local Storage:
