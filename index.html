@@ -9,12 +9,22 @@
             /* universal selector */
             padding: 0;
             margin: 0;
-            font-family: sans-serif;
+            font-family: sans-serif;          
+        }
+
+        body {
+            background-image: url(https://img.freepik.com/premium-photo/abstract-3d-render-modern-geometric-background-graphic-design_537590-190.jpg?semt=ais_hybrid);
+            background-position: cover;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         form {
-            width: 500px;
-            margin: auto;
+            color: white;
+            width: 400px;
+            /* margin: auto; */
             padding: 10px;
             box-shadow: 0px 0px 10px 2px #ccc;
         }
@@ -37,10 +47,22 @@
 
         form button {
             padding: 10px 25px;
-            background-color: aqua;
+            background-color: rgb(52, 111, 111);
             color: white;
             border: none;
             cursor: pointer;
+        }
+
+        .main {
+            width: 1320px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+
+        .items {
+            flex-basis: 23%;
+            margin: 1%;
         }
     </style>
 </head>
