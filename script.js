@@ -25,5 +25,27 @@ form.addEventListener("submit", (event) => {
 // Local Storage ko ab access krna ye hai main kam:
 // ismai 2 chezain ati hain 1 tu data ko bejna or dosra data ko uthana...
 // bejny klye we use setItem() and nikalny klye we use getItem();
+// Ismai data key: value pair ki form m e jata hau:
+// let say k mery ps 1 array hai or osk andr mery ps bht sary objects hain, mtlb k mery ps multiple data hai lkin browser m tu tu key value ki form mai data tu hai lkin itna zda multiple data mjy broswer m ni dekhyga islye zrori hai k m isko
+// json m convert kro and then fer m osko access kro...
+
+// Array k andr iss trhan k objects hai: like data iss form mai hai:
+
+let user = [
+    {
+        'name': 'noor',
+        'email': 'noor@gmail.com',
+        'phone': '9876543210'
+    }, 
+    {
+        'name': 'ali',
+        'email': 'ali@gmail.com',
+        'phone': '9876543211'
+    }
+]
+
+// Localstorage setItem syntax:
+localStorage.setItem("na", user)        //na 1 variable hai o k hum islye banaty hain ta k set wala user wala dat ismai jye or hum get k time osko access krly...
+console.log(localStorage.getItem("na"));
 
 // Step 04--- Store Data in Local Storage:
