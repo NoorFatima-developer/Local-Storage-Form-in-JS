@@ -111,6 +111,89 @@
             cursor: pointer;
             /* margin-top: 10px; */
        }
+
+
+       /* Existing styles remain the same */
+
+@media (max-width: 1024px) {
+    /* Adjust main container for medium-sized screens */
+    #main {
+        width: 90%;
+    }
+
+    .items {
+        flex-basis: 30%; /* Adjust the item width for tablets */
+    }
+
+    form {
+        width: 300px; /* Reduce form width for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust for smaller screens */
+    body {
+        padding: 10px;
+    }
+
+    #main {
+        flex-direction: column; /* Stack items vertically */
+        width: 100%;
+    }
+
+    .items {
+        flex-basis: 100%; /* Each item takes full width */
+        margin: 10px 0; /* Add spacing between items */
+    }
+
+    form {
+        width: 90%; /* Form adapts to fit smaller screens */
+    }
+
+    form input {
+        font-size: 16px; /* Adjust font size for readability */
+        height: 35px; /* Reduce input height */
+    }
+
+    form button {
+        padding: 8px 20px; /* Adjust button size */
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust for mobile screens */
+    form h2 {
+        font-size: 1.2rem; /* Smaller heading */
+    }
+
+    form label {
+        font-size: 16px; /* Adjust label font size */
+    }
+
+    form input {
+        font-size: 14px; /* Smaller input font */
+        height: 30px;
+    }
+
+    .items {
+        padding: 10px; /* Reduce padding for mobile */
+        font-size: 14px; /* Smaller text for mobile */
+    }
+
+    .items h5 {
+        font-size: 12px; /* Smaller headings */
+    }
+
+    .items span {
+        font-size: 24px; /* Adjust close button size */
+    }
+
+    #call {
+        font-size: 14px; /* Adjust clear button size */
+    }
+}
+
     </style>
 </head>
 <body>
