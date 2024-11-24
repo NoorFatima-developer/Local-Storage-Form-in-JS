@@ -6,7 +6,6 @@ let main = document.querySelector("#main");
 let call = document.querySelector("#call");
 // Step 02--- Submit Form:
 form.addEventListener("submit", (event) => {
-
   // Step 03--- Access Form Data:
   console.log(event);
   event.preventDefault(); //jo b event aye osko cancel krdo, mtkb oage ko refresh krny sy rokta hai or page refresh nahi hota...
@@ -25,64 +24,60 @@ form.addEventListener("submit", (event) => {
   let checkstatus = 0;
   // Step 04--- Save Data in Local Storage:
 
-// Null handle operator:
-// aghr tu data mila tu dekhana ni tu ?? [] empty array dekha dena..
-// ab pehli dfa m wo [] e deyga ku k abi koi data ni beja lkin next time jb jyega tu wo data e dega jo beja hoa hoga...
+  // Null handle operator:
+  // aghr tu data mila tu dekhana ni tu ?? [] empty array dekha dena..
+  // ab pehli dfa m wo [] e deyga ku k abi koi data ni beja lkin next time jb jyega tu wo data e dega jo beja hoa hoga...
 
-let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
-for (const v of userData) {
-
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  for (const v of userData) {
     console.log(v);
     console.log(v.email);
     console.log(v.phone);
- 
-    
+
     if (v.email === email || v.phone === phone) {
       checkstatus = 1;
       break;
     }
-}
+  }
 
-if (checkstatus === 1) {
-    alert('Email or Phone Number already exists');
+  if (checkstatus === 1) {
+    alert("Email or Phone Number already exists");
     return;
-}
-//    console.log(checkstatus);
+  }
+  //    console.log(checkstatus);
 
-// console.log(userData);
+  // console.log(userData);
 
-// Step 05--- Push Data to Array:
- else{
+  // Step 05--- Push Data to Array:
+  else {
     userData.push({
-        'name': name,
-        'email': email,
-        'phone': phone,
-      });
-      
-      console.log(userData);
-      
-      // Step 06--- Convert Array to JSON and SetItem to send data:
-      
-      localStorage.setItem('userDetails', JSON.stringify(userData));
-      event.target.reset();
- }
+      name: name,
+      email: email,
+      phone: phone,
+    });
 
-DisplayData();
-event.preventDefault();
+    console.log(userData);
 
+    // Step 06--- Convert Array to JSON and SetItem to send data:
+
+    localStorage.setItem("userDetails", JSON.stringify(userData));
+    event.target.reset();
+  }
+
+  DisplayData();
+  event.preventDefault();
 });
-
 
 // Step 07--- Display Data on browser:
 //(Now again step 01 for main ku k m items k andr data ko br br generate krwnaa chahti o:)
 
 // Yani m chahti o k mera main wala data bar bar  generate o tu osklye m localstorage ko get krna fer push krna data fer set krna and then get krna wo sb krogi main klye:
 
-let DisplayData = ()=>{
-let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
-let finalData = "";
+let DisplayData = () => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  let finalData = "";
 
-userData.forEach((element, index) => {
+  userData.forEach((element, index) => {
     // console.log(element.name);
     finalData += `
      <div class="items">
@@ -95,33 +90,32 @@ userData.forEach((element, index) => {
 
             <h5>Phone</h5>
             <div>${element.phone}</div>
-        </div>`
-});
-// console.log(finalData);
+        </div>`;
+  });
+  // console.log(finalData);
 
-main.innerHTML = finalData; // Displaying data on main div...
-
-}
-
-
-let removeData = (index) => {
-    let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
-    userData.splice(index, 1);
-    localStorage.setItem('userDetails', JSON.stringify(userData));
-    DisplayData();
-    // console.log(userData);
-    // alert(index);
+  main.innerHTML = finalData; // Displaying data on main div...
 };
 
+let removeData = (index) => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  userData.splice(index, 1);
+  localStorage.setItem("userDetails", JSON.stringify(userData));
+  DisplayData();
+  // console.log(userData);
+  // alert(index);
+};
 
- // Call function to display data on page when page loads...
+// Call function to display data on page when page loads...
 
-call.addEventListener('click', function (e) {
-    localStorage.clear("userDetails");
-    DisplayData();  
-})
+call.addEventListener("click", function (e) {
+  localStorage.clear("userDetails");
+  DisplayData();
+});
 
-DisplayData();  
+DisplayData();
+
+
 // ====LOCAL STORAGE KI KAHANI =================
 
 // Local Storage ko ab access krna ye hai main kam:
@@ -139,7 +133,7 @@ DisplayData();
 //         'name': 'noor',
 //         'email': 'noor@gmail.com',
 //         'phone': '9876543210'
-//     }, 
+//     },
 //     {
 //         'name': 'ali',
 //         'email': 'ali@gmail.com',
@@ -154,7 +148,6 @@ DisplayData();
 // console.log(JSON.parse(localStorage.getItem("na")));
 // Array sy bdl k -> JSOn mai gya tha and -> JSON sy bdl k Array m wps agya hai...
 
-
 // ::::::::::::::Local storage ki kahani::::::::::::::::::::::
 
 // // Localstorage setItem syntax:
@@ -167,9 +160,8 @@ DisplayData();
 // console.log(localStorage.getItem("n"));
 
 // aghr tu meny bs 1 e data bejna hai tu wo tu o jyega osklye hmy json m convert krny ki zrort ni hai:
-// ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json 
+// ab dekho user k andr multiple data hai lkin hum tu key: value ki form mai 1 time mai 1 e data access krksty hain aghr hum essy krygy tu browser osko understand kesy kryga..islye hum phr osko json
 // mai convert krty hain ta k data readable form mai ajye or hum multiple data ko b easily access krsky...
-
 
 // SUMMARY:
 // Ye smjo k hmy jb b object time ka data bejna hai tu hmy json m convert krna e pryga..
