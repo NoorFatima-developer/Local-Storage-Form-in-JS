@@ -9,7 +9,7 @@
             /* universal selector */
             padding: 0;
             margin: 0;
-            font-family: sans-serif;          
+            font-family: cursive;         
         }
 
         body {
@@ -36,17 +36,23 @@
         form h2 {
             padding: 20px 0px;
             text-align: center;
+            font-weight: bold;
         }
 
         form label {
             display: block;
-            font-size: 16px;
+            font-size: 20px;
         }
 
         form input {
             width: 100%;
-            height: 30px;
+            height: 40px;
             margin-bottom: 10px;
+            background: transparent;
+            color: rgb(52, 111, 111);
+            font-size: 20px;
+            font-weight: bold;
+
         }
 
         form button {
@@ -55,6 +61,8 @@
             color: white;
             border: none;
             cursor: pointer;
+            display: table;
+            margin: auto;
         }
 
        #main {
@@ -83,6 +91,22 @@
         font-size: 30px;
         cursor: pointer;
        }
+
+       .btns{
+        display: flex;
+        justify-content: space-around;
+        justify-content: center;
+        margin-top: 10px;
+       }
+        #call{
+        
+        padding: 10px 25px;
+            background-color: rgb(205, 75, 75);
+            color: white;
+            border: none;
+            cursor: pointer;
+            /* margin-top: 10px; */
+       }
     </style>
 </head>
 <body>
@@ -95,12 +119,16 @@
         <input type="email" name="email" required>
         <label for="">Phone</label>
         <input type="text" name="phone" required>
-        <button type="submit">Submit</button>
+        <div class="btns">
+            <button type="submit">Submit</button>
+        <button id="call">Clear All</button>
+        </div>
+
     </form>
 
     <div id="main">
         <div class="items">
-            <span>&times</span>
+            <!-- <span>&times</span>
             <h5>Name</h5>
             <div>Abc</div>
 
@@ -108,7 +136,7 @@
             <div>abc@gmail.com</div>
 
             <h5>Phone</h5>
-            <div>8888888888</div>
+            <div>8888888888</div> -->
         </div>
     </div>
 

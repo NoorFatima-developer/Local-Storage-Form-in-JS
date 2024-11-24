@@ -2,6 +2,8 @@
 
 // Step 01--- Get Form:
 let form = document.querySelector("form");
+let main = document.querySelector("#main");
+let call = document.querySelector("#call");
 // Step 02--- Submit Form:
 form.addEventListener("submit", (event) => {
 
@@ -18,38 +20,108 @@ form.addEventListener("submit", (event) => {
   console.log(event.target.phone);
   console.log(event.target.phone.value);
   let name = event.target.uname.value;
-
+  let email = event.target.email.value;
+  let phone = event.target.phone.value;
+  let checkstatus = 0;
   // Step 04--- Save Data in Local Storage:
 
 // Null handle operator:
 // aghr tu data mila tu dekhana ni tu ?? [] empty array dekha dena..
 // ab pehli dfa m wo [] e deyga ku k abi koi data ni beja lkin next time jb jyega tu wo data e dega jo beja hoa hoga...
 
-var userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
-console.log(userData);
+let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
+for (const v of userData) {
+
+    console.log(v);
+    console.log(v.email);
+    console.log(v.phone);
+ 
+    
+    if (v.email === email || v.phone === phone) {
+      checkstatus = 1;
+      break;
+    }
+}
+
+if (checkstatus === 1) {
+    alert('Email or Phone Number already exists');
+    return;
+}
+//    console.log(checkstatus);
+
+// console.log(userData);
 
 // Step 05--- Push Data to Array:
+ else{
+    userData.push({
+        'name': name,
+        'email': email,
+        'phone': phone,
+      });
+      
+      console.log(userData);
+      
+      // Step 06--- Convert Array to JSON and SetItem to send data:
+      
+      localStorage.setItem('userDetails', JSON.stringify(userData));
+      event.target.reset();
+ }
 
-userData.push({
-  'name': name,
-  'email': event.target.email.value,
-  'phone': event.target.phone.value
-});
-
-console.log(userData);
-
-// Step 06--- Convert Array to JSON and SetItem to send data:
-
-localStorage.setItem('userDetails', JSON.stringify(userData));
+DisplayData();
 event.preventDefault();
 
-
-
 });
 
 
+// Step 07--- Display Data on browser:
+//(Now again step 01 for main ku k m items k andr data ko br br generate krwnaa chahti o:)
+
+// Yani m chahti o k mera main wala data bar bar  generate o tu osklye m localstorage ko get krna fer push krna data fer set krna and then get krna wo sb krogi main klye:
+
+let DisplayData = ()=>{
+let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
+let finalData = "";
+
+userData.forEach((element, index) => {
+    // console.log(element.name);
+    finalData += `
+     <div class="items">
+            <span onclick = removeData(${index})>&times</span>
+            <h5>Name</h5>
+            <div>${element.name}</div>
+
+            <h5>Email</h5>
+            <div>${element.email}</div>
+
+            <h5>Phone</h5>
+            <div>${element.phone}</div>
+        </div>`
+});
+// console.log(finalData);
+
+main.innerHTML = finalData; // Displaying data on main div...
+
+}
 
 
+let removeData = (index) => {
+    let userData = JSON.parse(localStorage.getItem('userDetails')) ?? [];
+    userData.splice(index, 1);
+    localStorage.setItem('userDetails', JSON.stringify(userData));
+    DisplayData();
+    // console.log(userData);
+    // alert(index);
+};
+
+
+ // Call function to display data on page when page loads...
+
+call.addEventListener('click', function (e) {
+    localStorage.clear("userDetails");
+    DisplayData();  
+})
+
+DisplayData();  
 // ====LOCAL STORAGE KI KAHANI =================
 
 // Local Storage ko ab access krna ye hai main kam:
