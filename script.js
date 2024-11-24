@@ -23,7 +23,7 @@ form.addEventListener("submit", (event) => {
   }
 
   if (checkstatus === 1) {
-    alert("Email or Phone Number already exists");
+    alert("Data already exists");
     return;
   }
 
